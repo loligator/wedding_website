@@ -11,3 +11,17 @@ code {
   font-family: source-code-pro, Menlo, Monaco, Consolas, 'Courier New',
     monospace;
 }
+
+@font-face {
+  font-family: "MrsSaintDelafield";
+  font-weight: regular;
+  src: local("MrsSaintDelafield"), 
+    url("../resources/fonts/MrsSaintDelafield/MrsSaintDelafield-Regular.ttf") format("truetype")
+}
+
+@font-face {
+  font-family: "Meddon";
+  font-weight: regular;
+  src: local("Meddon"),
+    url("../resources/fonts/meddon/Meddon.ttf") format("truetype");
+}
