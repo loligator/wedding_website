@@ -8,13 +8,6 @@ import fountainImg from './images/fountain.jpg'
 function App() {
   return (
     <div className={cx(PageStyles.mainColumn)}>
-      
-      <Tabs tablist={{
-        Home: "/",
-        RSVP: "/rsvp",
-        Gallery: "/gallery",
-        "Things to do": "/things-to-do"
-      }}/>
       <MainImage src={fountainImg}/>
     </div>
   );

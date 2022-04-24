@@ -6,6 +6,8 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import RsvpPage from './Pages/Rsvp';
 import PageStyles from './Pages/page.module.css';
 import MainHero from './Components/Hero/hero';
+import Tabs from './Components/Tabs/tabs';
+
 import backgroundImg from './images/background.png';
 
 import './fonts/MrsSaintDelafield/MrsSaintDelafield-Regular.ttf';
@@ -23,6 +25,12 @@ root.render(
     }}>
     <MainHero/>
     <BrowserRouter>
+      <Tabs tablist={{
+          Home: "/",
+          Gallery: "#gallery",
+          "Things to do": "#things-to-do",
+          RSVP: "/rsvp"
+      }}/>
       <Routes>
         <Route path="/" element={<App />}/>
         <Route path="rsvp" element={<RsvpPage />}/>
