@@ -8,9 +8,9 @@ export interface TabsProps {
 export default function Tabs(props: TabsProps) {
 	return (
 		<div className={styles.tablist}>
-			{Object.entries(props.tablist).map(([name, link]) => {
+			{Object.entries(props.tablist).map(([name, link], index) => {
 				return (
-					<div className={styles.tab}>
+					<div className={styles.tab} key={index}>
 						<Link to={link}>{name}</Link>
 					</div>
 				);

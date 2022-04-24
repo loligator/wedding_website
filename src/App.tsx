@@ -1,4 +1,3 @@
-import Tabs from './Components/Tabs/tabs';
 import MainImage from './Components/MainImage/mainimage';
 import PageStyles from './Pages/page.module.css';
 import cx from 'classnames';
