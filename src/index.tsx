@@ -6,7 +6,6 @@ import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import RsvpPage from './Pages/Rsvp';
 //import reportWebVitals from './reportWebVitals';
 
-
 const root = ReactDOM.createRoot(
   document.getElementById('root') as HTMLElement
 );
