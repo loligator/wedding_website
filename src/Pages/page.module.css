@@ -17,3 +17,7 @@
 	background-position: center top;
 	background-repeat: no-repeat;
 }
+
+.textCenter {
+	text-align: center;
+}

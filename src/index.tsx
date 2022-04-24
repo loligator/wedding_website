@@ -4,6 +4,9 @@ import './index.css';
 import App from './App';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import RsvpPage from './Pages/Rsvp';
+import PageStyles from './Pages/page.module.css';
+import MainHero from './Components/Hero/hero';
+import backgroundImg from './images/background.png';
 
 import './fonts/MrsSaintDelafield/MrsSaintDelafield-Regular.ttf';
 import './fonts/meddon/Meddon.ttf';
@@ -15,12 +18,17 @@ const root = ReactDOM.createRoot(
 );
 root.render(
   <React.StrictMode>
+    <div className={PageStyles.backgroundImage} style={{
+      backgroundImage: `url(${backgroundImg}), none`
+    }}>
+    <MainHero/>
     <BrowserRouter>
       <Routes>
         <Route path="/" element={<App />}/>
         <Route path="rsvp" element={<RsvpPage />}/>
       </Routes>
     </BrowserRouter>
+    </div>
   </React.StrictMode>
 );
 
