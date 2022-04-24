@@ -12,16 +12,25 @@ code {
     monospace;
 }
 
+a {
+  color: black;
+  text-decoration: none;
+}
+
+a:hover {
+  color: gray;
+}
+
 @font-face {
   font-family: "MrsSaintDelafield";
   font-weight: regular;
   src: local("MrsSaintDelafield"), 
-    url("../resources/fonts/MrsSaintDelafield/MrsSaintDelafield-Regular.ttf") format("truetype")
+    url("./fonts/MrsSaintDelafield/MrsSaintDelafield-Regular.ttf") format("truetype")
 }
 
 @font-face {
   font-family: "Meddon";
   font-weight: regular;
   src: local("Meddon"),
-    url("../resources/fonts/meddon/Meddon.ttf") format("truetype");
+  url("./fonts/meddon/Meddon.ttf") format("truetype");
 }
