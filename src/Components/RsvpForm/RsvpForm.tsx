@@ -1,4 +1,6 @@
-import React, { useState } from 'react';
+import { useState } from 'react';
+import { Form, Field } from 'react-final-form';
+import cx from 'classnames';
 
 import styles from './RsvpForm.module.css';
 
@@ -6,7 +8,7 @@ interface formData {
 	guest: Guest;
 	email: string;
 	phone: string;
-	extraGuests: Guest[];
+	guestNames: string;
 	foodRestrictions: string;
 	message: string;
 }
@@ -17,83 +19,68 @@ interface Guest {
 }
 
 export default function RsvpForm() {
-	const [fields, setFields] = useState<formData>({
-		guest: {
-			firstName: "",
-			lastName: "",
-		},
-		email: "",
-		phone: "",
-		extraGuests: [],
-		foodRestrictions: "",
-		message: ""
-	});
+	const [bringingGuests, setBringingGuests] = useState(false);
 
-	const setFirstName = (firstName: string) => {
-		setFields({
-			...fields,
-			guest: {
-				...fields.guest,
-				firstName
-			}
-		});
+	const onSubmit = (values: formData) => {
+		console.dir(values);
 	}
 
-	const setLastName = (lastName: string) => {
-		setFields({
-			...fields,
-			guest: {
-				...fields.guest,
-				lastName
-			}
-		});
+	const validate = (values: formData): any => {
+		return;
 	}
-
-	const setEmail = (email: string) => {setFields({...fields, email})}
-	const setPhone = (phone: string) => {setFields({...fields, phone})}
-	const setMessage = (message: string) => {setFields({...fields, message})}
-	const setFoodRestrictions = (foodRestrictions: string) => {setFields({...fields, foodRestrictions})}
 
 	return (
-		<div className={styles.form}>
-			<form>
-				<input 
-					name="Name"
-					placeholder='First Name'
-					value={fields.guest.firstName}
-					onChange={e => setFirstName(e.target.value)}>
-				</input>
-				<input 
-					name="Last Name"
-					placeholder='Last Name'
-					value={fields.guest.lastName}
-					onChange={e => setLastName(e.target.value)}>
-				</input>
-				<input 
-					name="Email"
-					placeholder='Email'
-					value={fields.email}
-					onChange={e => setEmail(e.target.value)}>
-				</input>
-				<input 
-					name="Phone"
-					placeholder='Phone'
-					value={fields.phone}
-					onChange={e => setPhone(e.target.value)}>
-				</input>
-				<input 
-					name="Food Restrictions"
-					placeholder='Food Restrictions'
-					value={fields.foodRestrictions}
-					onChange={e => setLastName(e.target.value)}>
-				</input>
-				<input 
-					name="Message"
-					placeholder='Message'
-					value={fields.message}
-					onChange={e => setLastName(e.target.value)}>
-				</input>
-			</form>
-		</div>
+		<Form
+			onSubmit={onSubmit}
+			validate={validate}
+			className={styles.form}
+			render={({ handleSubmit, form, submitting, pristine, values }) => {
+
+				let guestNameEntry;
+				if (bringingGuests) {
+					guestNameEntry = (
+						<>
+							<span className={styles.label}>Please enter the names of each of your guests</span>
+							<Field name="guestNames" component="textarea"/>
+						</>
+					);
+				} else {
+					guestNameEntry = <></>;
+				}
+				return (
+					<form className={styles.form} onSubmit={handleSubmit}>
+						<div className={cx(styles.flex, styles.flexColumn)}>
+							<div className={cx(styles.flex, styles.flexRow, styles.center)}>
+								<Field name="attending" component="input" type="radio" value="true"/>
+								<span className={styles.label}>
+									Attending
+								</span>
+								<Field name="attending" component="input" type="radio" value="false"/>
+								<span className={styles.label}>
+									Not Attending
+								</span>
+							</div>
+							<Field name="firstName" component="input" placeholder="First Name"/>
+							<Field name="lastName" component="input" placeholder="Last Name"/>
+							<Field name="email" component="input" type='email' placeholder="Email"/>
+							<Field name="phone" component="input" type='phone' placeholder="Phone"/>
+							<div>
+								<h5>Are you bringing any guests with you?</h5>
+								<input name="bringingGuests" type="radio" checked={bringingGuests} onChange={() => setBringingGuests(true)}/>
+								<span className={styles.label}>Yes</span>
+								<input name="bringingGuests" type="radio" checked={!bringingGuests} onChange={() => setBringingGuests(false)}/>
+								<span className={styles.label}>No</span>
+							</div>
+							{guestNameEntry}
+							<Field name="foodRestrictions" component="textarea" placeholder="Food Restrictions"/>
+							<Field name="message" component="textarea" placeholder="Message for the Couple"/>
+							<button className={styles.submit} type="submit" disabled={submitting || pristine}>
+								Submit
+							</button>
+							<pre>{JSON.stringify(values)}</pre>
+						</div>
+					</form>
+				)}}
+		/>
 	);
 }

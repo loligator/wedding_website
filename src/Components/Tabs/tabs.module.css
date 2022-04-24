@@ -1,0 +1,10 @@
+.tablist {
+	display: flex;
+	flex-direction: row;
+	justify-content: center;
+}
+
+.tablist .tab {
+	padding: 1rem;
+}
+

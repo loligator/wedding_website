@@ -4,6 +4,10 @@ import './index.css';
 import App from './App';
 import { BrowserRouter, Routes, Route } from 'react-router-dom';
 import RsvpPage from './Pages/Rsvp';
+
+import './fonts/MrsSaintDelafield/MrsSaintDelafield-Regular.ttf';
+import './fonts/meddon/Meddon.ttf';
+
 //import reportWebVitals from './reportWebVitals';
 
 const root = ReactDOM.createRoot(

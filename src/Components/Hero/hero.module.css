@@ -1,0 +1,21 @@
+.header {
+	font-size: 4rem;
+	padding: 4rem 0;
+	margin: 0;
+}
+
+.meddon {
+	font-family: "Meddon";
+}
+
+.MrsSaintDelafield {
+	font-family: "MrsSaintDelafield";
+}
+
+.center {
+	margin: 0 auto;
+}
+
+.textCenter {
+	text-align: center;
+}

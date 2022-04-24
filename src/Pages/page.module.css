@@ -1,6 +1,19 @@
 .mainColumn {
 	margin: 0 auto;
-	max-width: 50rem;
+	max-width: 65rem;
 }
 
+.backButton {
+	position: absolute;
+	top: 0;
+	left: 0;
+	padding: 1rem;
+}
 
+.backgroundImage {
+	background-size: 1600px auto;
+	background-color: #e1e8e4;
+	padding: 100px 0 0;
+	background-position: center top;
+	background-repeat: no-repeat;
+}
