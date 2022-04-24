@@ -1,4 +1,3 @@
-import { stringify } from 'querystring';
 import React, { useState } from 'react';
 
 import styles from './RsvpForm.module.css';
@@ -97,10 +96,4 @@ export default function RsvpForm() {
 			</form>
 		</div>
 	);
-}
-
-function setFirstName(value: string, setFields: React.Dispatch<React.SetStateAction<formData>>) {
-	setFields({
-		...
-	});
 }

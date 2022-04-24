@@ -1,9 +1,10 @@
-import RsvpForm from "../Components/RsvpForm/RsvpForm";
+import FinalRsvpForm from '../Components/RsvpForm/FinalRsvpForm';
+import PageStyles from './page.module.css';
 
 export default function RsvpPage(): JSX.Element {
 	return (
-		<div>
-			<RsvpForm />
+		<div className={PageStyles.mainColumn}>
+			<FinalRsvpForm />
 		</div>
 	);
 }

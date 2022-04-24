@@ -1,3 +1,30 @@
-Form {
-	background-color: red;
+.flex {
+	display: flex;
+}
+
+.flex.flexColumn {
+	flex-direction: column;
+}
+
+.flex.flexRow {
+	flex-direction: row;
+}
+
+.flex.center {
+	justify-content: center;
+}
+
+.flex input, .flex textarea {
+	padding: 1rem;
+	margin: 1rem;
+}
+
+.form .label {
+	margin: auto 0;
+}
+
+.form .submit {
+	padding: 1rem;
+	width: 10rem;
+	margin: 0 auto;
 }
